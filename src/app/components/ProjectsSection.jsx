@@ -3,28 +3,49 @@ import { useState } from "react";
 
 const projects = [
   {
-    name: "ROLE-SPECIFIC POS SYSTEM",
+    name: "MashMarket (M.A.S.H.)",
+    shortDesc:
+      "A specialized B2C marketplace for mushroom growers — built a full seller dashboard with real-time inventory, sales analytics, and order tracking to empower local farmers with direct-to-consumer tools.",
+    tags: ["Next.js", "TypeScript", "Sanity", "Clerk", "Tailwind"],
+    emoji: "🍄",
+    featured: true,
+    liveUrl: "https://mashmarket.app/",
+    githubUrl: "https://github.com/MASH-Mushroom-Automation/MASH-Ecommerce-Web",
+    problem:
+      "Mushroom growers struggle with fragmented sales channels and lack the technical tools to manage inventory or see data-driven insights into their business.",
+    solution:
+      "Built a unified 'Mushroom Hub' combining a professional consumer storefront with a backend command center for sellers — making the complex process of running an online farm simple and intuitive.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Sanity CMS",
+      "Clerk",
+      "Figma",
+    ],
+    myRole: "Lead Frontend Engineer & UI/UX Designer",
+    impact:
+      "Empowered local mushroom growers to sell directly to consumers, eliminating middlemen and maximizing profit margins through a clean, data-rich seller dashboard.",
+    image: null,
+  },
+  {
+    name: "Role-Specific POS System",
     shortDesc:
       "Point of Sale system built for a milk tea shop with role-based access and real-time order flow.",
     tags: ["Frontend", "UI/UX", "POS"],
     emoji: "🧋",
-    featured: true,
-    // TODO: Replace with actual live demo URL when deployed
-    liveUrl: "#",
-    // TODO: Replace with actual GitHub repo URL
-    githubUrl: "https://github.com/27Ronan",
-    // Deep dive case study
+    featured: false,
+    liveUrl: null,
+    githubUrl: "https://github.com/Jasupaa/ROLE-SPECIFIC-POS-SYSTEM",
     problem:
       "Manual order tracking was slow and error-prone during peak hours, causing delays and wrong orders.",
     solution:
       "Built a role-based dashboard where cashiers, kitchen staff, and managers each see only what they need — reducing clutter and speeding up workflow.",
-    // TODO: Add your actual tech stack used for this project
     stack: ["React", "CSS Modules", "Firebase"],
     myRole: "Frontend Developer + UI/UX Designer",
-    // TODO: Add a real measurable impact if you have one, e.g. "Reduced order errors by 40%"
     impact:
       "Streamlined order processing with a clean, role-specific interface that reduced training time for new staff.",
-    // TODO: Replace with actual project screenshot path e.g. "/images/pos-screenshot.png"
     image: null,
   },
   {
@@ -33,18 +54,16 @@ const projects = [
       "Official website for a clothing brand with product showcasing and brand storytelling.",
     tags: ["React", "CSS", "Brand"],
     emoji: "👕",
-    liveUrl: "#",
-    githubUrl: "https://github.com/27Ronan",
+    featured: false,
+    liveUrl: null,
+    githubUrl: "https://github.com/Arjayy007/MyxCulture-Website",
     problem:
       "The brand had no online presence and relied entirely on social media for product visibility.",
     solution:
       "Designed and built a clean brand website with product gallery, about section, and contact page that reflects the brand identity.",
-    // TODO: Add actual stack used
     stack: ["React", "CSS", "Figma"],
     myRole: "Frontend Developer",
-    // TODO: Add real impact if available
     impact: "Gave the brand a professional web presence beyond social media.",
-    // TODO: Replace with actual screenshot path
     image: null,
   },
   {
@@ -53,19 +72,17 @@ const projects = [
       "AI-powered Story Adaptive Game Engine that generates dynamic branching narratives.",
     tags: ["AI", "Frontend", "Game"],
     emoji: "📖",
-    liveUrl: "#",
-    githubUrl: "https://github.com/27Ronan",
+    featured: false,
+    liveUrl: null,
+    githubUrl: "https://github.com/Genrei123/Text-Adventure",
     problem:
       "Creating interactive stories required writing hundreds of branching paths manually — not scalable.",
     solution:
       "Built a game engine UI where users input a story premise and the AI generates adaptive, branching narrative paths in real time.",
-    // TODO: Add actual stack used
     stack: ["React", "OpenAI API", "CSS"],
     myRole: "Frontend Developer",
-    // TODO: Add real impact
     impact:
       "Turned a complex AI backend into a clean, playable story experience anyone can use.",
-    // TODO: Replace with actual screenshot path
     image: null,
   },
 ];
@@ -161,7 +178,7 @@ function ProjectModal({ project, onClose }) {
           </button>
         </div>
 
-        {/* TODO: Replace emoji placeholder with actual <img> tag once you have a screenshot */}
+        {/* Image / placeholder */}
         <div
           style={{
             background: "linear-gradient(135deg, #1a0808, #200d0d)",
@@ -173,6 +190,7 @@ function ProjectModal({ project, onClose }) {
             fontSize: "5rem",
             marginBottom: "2rem",
             border: "1px solid rgba(255,26,26,0.1)",
+            overflow: "hidden",
           }}
         >
           {project.image ? (
@@ -245,9 +263,9 @@ function ProjectModal({ project, onClose }) {
                   fontSize: "0.72rem",
                   color: "#ff1a1a",
                   background: "#ff1a1a12",
-                  padding: "0.3rem 0.8rem",
+                  padding: "0.25rem 0.75rem",
                   borderRadius: "20px",
-                  border: "1px solid #ff1a1a33",
+                  border: "1px solid #ff1a1a22",
                 }}
               >
                 {t}
@@ -256,42 +274,44 @@ function ProjectModal({ project, onClose }) {
           </div>
         </div>
 
-        {/* Action buttons */}
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.8rem",
-              background: "#ff1a1a",
-              color: "#ffffff",
-              padding: "0.7rem 1.5rem",
-              borderRadius: "4px",
-              textDecoration: "none",
-              fontWeight: 700,
-              transition: "all 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = "#ff4444";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = "#ff1a1a";
-            }}
-          >
-            Live Demo ↗
-          </a>
+        {/* Modal action links */}
+        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "0.78rem",
+                background: "#ff1a1a",
+                color: "#ffffff",
+                padding: "0.6rem 1.2rem",
+                borderRadius: "4px",
+                textDecoration: "none",
+                fontWeight: 700,
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#ff4444";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#ff1a1a";
+              }}
+            >
+              Live Demo ↗
+            </a>
+          )}
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.8rem",
+              fontSize: "0.78rem",
               color: "#ffffff",
               border: "1px solid #ffffff22",
-              padding: "0.7rem 1.5rem",
+              padding: "0.6rem 1.2rem",
               borderRadius: "4px",
               textDecoration: "none",
               transition: "all 0.2s",
@@ -321,25 +341,25 @@ function ProjectCard({ project, featured }) {
       {open && (
         <ProjectModal project={project} onClose={() => setOpen(false)} />
       )}
-
       <div
         style={{
-          background: "#0f0a0a",
+          background: "#0d0808",
           border: featured
             ? "1px solid rgba(255,26,26,0.25)"
             : "1px solid rgba(255,255,255,0.07)",
           borderRadius: "14px",
-          padding: "2rem",
-          transition: "all 0.3s ease",
-          cursor: "pointer",
-          display: featured ? "grid" : "flex",
-          gridTemplateColumns: featured ? "1fr 2fr" : undefined,
-          flexDirection: featured ? undefined : "column",
-          gap: "2rem",
-          alignItems: featured ? "center" : undefined,
+          padding: featured ? "2rem" : "1.5rem",
+          display: "grid",
+          gridTemplateColumns: featured ? "auto 1fr" : "1fr",
+          gap: "1.5rem",
+          alignItems: "start",
+          transition: "all 0.25s ease",
+          cursor: "default",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(255,26,26,0.4)";
+          e.currentTarget.style.borderColor = featured
+            ? "rgba(255,26,26,0.5)"
+            : "rgba(255,255,255,0.15)";
           e.currentTarget.style.transform = "translateY(-4px)";
           e.currentTarget.style.boxShadow = "0 16px 50px rgba(255,26,26,0.08)";
         }}
@@ -351,18 +371,20 @@ function ProjectCard({ project, featured }) {
           e.currentTarget.style.boxShadow = "none";
         }}
       >
-        {/* TODO: Replace emoji with <img> tag when you have screenshots */}
+        {/* Image / placeholder */}
         <div
           style={{
             background: "linear-gradient(135deg, #1a0808, #200d0d)",
             borderRadius: "10px",
-            height: featured ? "180px" : "120px",
+            width: featured ? "220px" : "100%",
+            height: featured ? "160px" : "110px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontSize: featured ? "4rem" : "2.5rem",
             border: "1px solid rgba(255,26,26,0.1)",
             flexShrink: 0,
+            overflow: "hidden",
           }}
         >
           {project.image ? (
@@ -473,31 +495,37 @@ function ProjectCard({ project, featured }) {
             >
               Case Study ▸
             </button>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: "0.72rem",
-                color: "#ffffff",
-                border: "1px solid #ffffff22",
-                padding: "0.5rem 1rem",
-                borderRadius: "4px",
-                textDecoration: "none",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.borderColor = "#ff1a1a";
-                e.target.style.color = "#ff1a1a";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.borderColor = "#ffffff22";
-                e.target.style.color = "#ffffff";
-              }}
-            >
-              Live ↗
-            </a>
+
+            {/* Live Demo — only for MASH */}
+            {featured && project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "0.72rem",
+                  color: "#ffffff",
+                  border: "1px solid #ffffff22",
+                  padding: "0.5rem 1rem",
+                  borderRadius: "4px",
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.borderColor = "#ff1a1a";
+                  e.target.style.color = "#ff1a1a";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.borderColor = "#ffffff22";
+                  e.target.style.color = "#ffffff";
+                }}
+              >
+                Live Demo ↗
+              </a>
+            )}
+
+            {/* View Code — always shown */}
             <a
               href={project.githubUrl}
               target="_blank"
@@ -508,11 +536,13 @@ function ProjectCard({ project, featured }) {
                 color: "#8899aa",
                 textDecoration: "none",
                 transition: "color 0.2s",
+                display: "flex",
+                alignItems: "center",
               }}
               onMouseEnter={(e) => (e.target.style.color = "#ff1a1a")}
               onMouseLeave={(e) => (e.target.style.color = "#8899aa")}
             >
-              GitHub ↗
+              View Code ↗
             </a>
           </div>
         </div>
@@ -547,12 +577,12 @@ export default function ProjectsSection() {
         Things I&apos;ve Built
       </h2>
 
-      {/* Featured */}
+      {/* Featured — MASH */}
       <div style={{ marginBottom: "1.5rem" }}>
         <ProjectCard project={projects[0]} featured={true} />
       </div>
 
-      {/* Other projects — responsive 2 col */}
+      {/* Other projects — responsive grid */}
       <div
         style={{
           display: "grid",

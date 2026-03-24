@@ -3,10 +3,8 @@
 export default function ContactSection() {
   const socials = [
     { label: "GitHub", href: "https://github.com/27Ronan" },
-    // TODO: Replace # with your actual LinkedIn URL
-    { label: "LinkedIn", href: "#" },
-    // TODO: Replace with your actual email address
-    { label: "Email", href: "mailto:ronanrenz@email.com" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ronanrenzvalencia" },
+    { label: "Email", href: "mailto:valenciaronan@gmail.com" },
   ];
 
   return (
@@ -73,9 +71,8 @@ export default function ContactSection() {
           If you have something in mind, let&apos;s talk.
         </p>
 
-        {/* TODO: Replace with your actual email */}
         <a
-          href="mailto:ronanrenz@email.com"
+          href="mailto:valenciaronan@gmail.com"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: "0.9rem",
